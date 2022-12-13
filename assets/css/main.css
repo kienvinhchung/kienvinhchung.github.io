@@ -1801,6 +1801,11 @@ input, select, textarea {
 		ul li {
 			padding-left: 0.5em;
 		}
+		ul.no-bullets {
+			list-style-type: none; /* remove bullets */
+			padding: 0; /* remove padding */
+			margin: 0; /* remove margin */
+		}	
 
 	ol {
 		list-style: decimal;
