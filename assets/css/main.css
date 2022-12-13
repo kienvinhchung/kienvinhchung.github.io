@@ -1852,7 +1852,7 @@ input, select, textarea {
 	form select,
 	form textarea {
 		position: relative;
-		-webkit-appearance: none;
+		/* -webkit-appearance: none; */ /* doesnt work */
 		display: block;
 		border: 0;
 		outline: 0;
