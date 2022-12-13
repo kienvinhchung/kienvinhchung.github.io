@@ -2619,6 +2619,10 @@ input, select, textarea {
 				width: 2em;
 				font-size: 1.25em;
 			}
+			ul.contact-info a {
+				width: 2em;
+				font-size: 1.25em;
+			}
 
 		/* Main */
 
