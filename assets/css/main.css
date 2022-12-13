@@ -175,7 +175,8 @@ input, select, textarea {
 	}
 
 		a:hover {
-			color: #E27689;
+			/* color: #E27689; original color */
+			color: #76a3e2;
 			border-bottom-color: rgba(255, 255, 255, 0);
 		}
 
@@ -1798,14 +1799,20 @@ input, select, textarea {
 		padding-left: 1em;
 	}
 
+	ul.no-bullets {
+		list-style-type: none; /* remove bullets */
+		padding: 0; /* remove padding */
+		margin: 0; /* remove margin */
+		text-decoration: none;
+	}	
+
 		ul li {
-			padding-left: 0.5em;
+			padding-left: 0;
 		}
-		ul.no-bullets {
-			list-style-type: none; /* remove bullets */
-			padding: 0; /* remove padding */
-			margin: 0; /* remove margin */
-		}	
+		ul li.contact-info {
+			padding: 0.75em;
+			text-decoration: none;
+		}
 
 	ol {
 		list-style: decimal;
@@ -1838,6 +1845,11 @@ input, select, textarea {
 			border: 0;
 		}
 
+/* Remove icons underline */
+	#no-under-line {
+		text-decoration: none;
+	}
+		
 /* Form */
 
 	form label {
@@ -2174,7 +2186,8 @@ input, select, textarea {
 				}
 
 					#nav ul li a.active span:before {
-						color: #e27689;
+						/* color: #e27689; original color */
+						color: #76a3e2;
 					}
 
 /* Footer */
