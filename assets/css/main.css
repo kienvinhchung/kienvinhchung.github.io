@@ -261,12 +261,13 @@ input, select, textarea {
 		}
 
 /* Row */
-
 	.row {
+		margin: auto;
 		display: flex;
 		flex-wrap: wrap;
 		box-sizing: border-box;
 		align-items: stretch;
+		text-align: center;
 	}
 
 		.row > * {
@@ -1996,10 +1997,11 @@ input, select, textarea {
 			background-color: #7eaeac;
 		}
 
-/* Item */
+/* Item rgba(0, 0, 0, 0.05) */
 
 	.item {
-		box-shadow: 0 0.05em 0.15em 0 rgba(0, 0, 0, 0.05);
+		border: 1px solid white;
+		box-shadow: 0 0 0.5em 0.15em #aaaaaa;
 		margin-bottom: 40px;
 	}
 
