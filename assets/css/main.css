@@ -2294,7 +2294,10 @@ input, select, textarea {
 			}
 
 			#main > section.six {
-				background-color: #e6e6e6;
+				background-color: #f8f8f8;
+			}
+			#main > section.seven {
+				background-color: #efefef;
 			}
 
 /* Wide */
