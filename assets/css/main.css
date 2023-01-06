@@ -2301,8 +2301,12 @@ input, select, textarea {
 				background-color: #efefef;
 			}
 
-			.conclusion {
+			.float-left {
 				text-align: left;
+			}
+
+			ol.upper-roman {
+				list-style-type: upper-roman;
 			}
 
 /* Wide */
