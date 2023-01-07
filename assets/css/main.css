@@ -2283,25 +2283,30 @@ input, select, textarea {
 			}
 
 			#main > section.two {
-				background-color: #f8f8f8;
+				background-color: #efefef;
 			}
 
 			#main > section.three {
-				background-color: #efefef;
+				background-color: #f8f8f8;
 			}
 
 			#main > section.four {
-				background-color: #f8f8f8;
-			}
-
-			#main > section.five {
 				background-color: #efefef;
 			}
 
-			#main > section.six {
+			#main > section.five {
 				background-color: #f8f8f8;
 			}
+
+			#main > section.six {
+				background-color: #efefef;
+			}
+
 			#main > section.seven {
+				background-color: #f8f8f8;
+			}
+
+			#main > section.eight {
 				background-color: #efefef;
 			}
 
