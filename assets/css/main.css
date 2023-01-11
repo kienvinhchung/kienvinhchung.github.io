@@ -21,7 +21,7 @@ section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 1000%;
 	font: inherit;
 	vertical-align: baseline;}
 
@@ -85,7 +85,7 @@ input, select, textarea {
 	body {
 		background: #fff;
 		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 19pt;
+		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.75em;
 		color: #888;
