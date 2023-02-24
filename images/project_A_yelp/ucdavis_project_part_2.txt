@@ -1,0 +1,373 @@
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+Part 2: Inferences and Analysis
+
+-----------------------------------------------------------------------------------------
+
+1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
+
+	//Line 462 to 549 is extra to support the choices of city and category.
+
+	City: Phoenix, AZ
+
+		Because Phoenix city in Arizona has the most food related businesses (8 businesses).
+
+		SQL code used to arrive at answer:
+
+		SELECT 
+		    b.city,
+		    COUNT(c.category) AS NumberOfFoodBusiness
+		FROM business b LEFT JOIN category c 
+		    ON b.id = c.business_id
+		WHERE (b.name IS NOT NULL) AND (b.city IS NOT NULL) AND (c.category LIKE '%food%')
+		GROUP BY city
+		ORDER BY NumberOfFoodBusiness DESC	
+
+		+-----------------+----------------------+
+		| city            | NumberOfFoodBusiness |
+		+-----------------+----------------------+
+		| Phoenix         |                    8 |
+		| Cleveland       |                    7 |
+		| Toronto         |                    7 |
+		| Las Vegas       |                    3 |
+		| Oakville        |                    2 |
+		| Scottsdale      |                    2 |
+		| Tempe           |                    2 |
+		| Chandler        |                    1 |
+		| Charlotte       |                    1 |
+		| Chesterland     |                    1 |
+		| Gilbert         |                    1 |
+		| Litchfield Park |                    1 |
+		| Middleton       |                    1 |
+		| Murrysville     |                    1 |
+		| North Randall   |                    1 |
+		| Paw Creek       |                    1 |
+		| Pittsburgh      |                    1 |
+		| Tolleson        |                    1 |
+		| Verdun          |                    1 |
+		| Willoughby      |                    1 |
+		| York            |                    1 |
+		+-----------------+----------------------+
+
+		SELECT 
+		    b.name,
+		    b.city,
+		    c.category
+		FROM business b LEFT JOIN category c 
+		    ON b.id = c.business_id
+		WHERE b.city == 'Phoenix' AND c.category LIKE '%food%'
+
+			+----------------------------------------+---------+-----------+
+			| name                                   | city    | category  |
+			+----------------------------------------+---------+-----------+
+			| Five Guys                              | Phoenix | Fast Food |
+			| Starbucks                              | Phoenix | Food      |
+			| McDonald's                             | Phoenix | Fast Food |
+			| Charlie D's Catfish & Chicken          | Phoenix | Soul Food |
+			| Charlie D's Catfish & Chicken          | Phoenix | Seafood   |
+			| Water N Ice                            | Phoenix | Food      |
+			| Safeway Food & Drug                    | Phoenix | Food      |
+			| Bootleggers Modern American Smokehouse | Phoenix | Food      |
+			+----------------------------------------+---------+-----------+
+
+	Category: All "food" categories combine
+
+		SQL code used to arrive at answer:
+
+		SELECT DISTINCT category
+		FROM category
+		WHERE category LIKE '%food%'
+
+			+------------------------+
+			| category               |
+			+------------------------+
+			| Food                   |
+			| Soul Food              |
+			| Seafood                |
+			| Comfort Food           |
+			| Specialty Food         |
+			| Fast Food              |
+			| Ethnic Food            |
+			| Food Trucks            |
+			| Seafood Markets        |
+			| Food Delivery Services |
+			| Imported Food          |
+			| Food Stands            |
+			| Do-It-Yourself Food    |
+			| Food Court             |
+			+------------------------+
+
+	i. Do the two groups you chose to analyze have a different distribution of hours?
+
+		Analysis: 
+			2-3 stars food-related businesses are fast food chain with operation hours from early in the morning 5:00 AM to late night.
+			4-5 stars food-related businesses are actual dine-in restaurants with normal operation hours range from 10:00-11:00 AM to 18:00-22:00 PM.
+			Therefore, there are a different distribution of hours between 2-3 stars and 4-5 stars businesses.
+
+
+		SQL code used for analysis (2 tables):
+
+		Table 1 - businesses with 4-5 stars:
+		SELECT
+		    b.name,
+		    c.category,
+		    b.stars,
+		    h.hours
+		FROM ((business b LEFT JOIN category c ON b.id = c.business_id) 
+		    LEFT JOIN hours h ON b.id = h.business_id)
+		WHERE 
+		    (c.category LIKE '%food%') AND 
+		    (b.city == 'Phoenix') AND 
+		    (h.hours IS NOT NULL) AND 
+		    (b.stars >= 4.0)
+		ORDER BY stars DESC
+		+----------------------------------------+-----------+-------+-----------------------+
+		| name                                   | category  | stars | hours                 |
+		+----------------------------------------+-----------+-------+-----------------------+
+		| Charlie D's Catfish & Chicken          | Soul Food |   4.5 | Monday|11:00-18:00    |
+		| Charlie D's Catfish & Chicken          | Soul Food |   4.5 | Tuesday|11:00-18:00   |
+		| Charlie D's Catfish & Chicken          | Soul Food |   4.5 | Friday|11:00-18:00    |
+		| Charlie D's Catfish & Chicken          | Soul Food |   4.5 | Wednesday|11:00-18:00 |
+		| Charlie D's Catfish & Chicken          | Soul Food |   4.5 | Thursday|11:00-18:00  |
+		| Charlie D's Catfish & Chicken          | Soul Food |   4.5 | Sunday|13:00-16:00    |
+		| Charlie D's Catfish & Chicken          | Soul Food |   4.5 | Saturday|11:00-18:00  |
+		| Charlie D's Catfish & Chicken          | Seafood   |   4.5 | Monday|11:00-18:00    |
+		| Charlie D's Catfish & Chicken          | Seafood   |   4.5 | Tuesday|11:00-18:00   |
+		| Charlie D's Catfish & Chicken          | Seafood   |   4.5 | Friday|11:00-18:00    |
+		| Charlie D's Catfish & Chicken          | Seafood   |   4.5 | Wednesday|11:00-18:00 |
+		| Charlie D's Catfish & Chicken          | Seafood   |   4.5 | Thursday|11:00-18:00  |
+		| Charlie D's Catfish & Chicken          | Seafood   |   4.5 | Sunday|13:00-16:00    |
+		| Charlie D's Catfish & Chicken          | Seafood   |   4.5 | Saturday|11:00-18:00  |
+		| Bootleggers Modern American Smokehouse | Food      |   4.0 | Monday|11:00-22:00    |
+		| Bootleggers Modern American Smokehouse | Food      |   4.0 | Tuesday|11:00-22:00   |
+		| Bootleggers Modern American Smokehouse | Food      |   4.0 | Friday|11:00-22:00    |
+		| Bootleggers Modern American Smokehouse | Food      |   4.0 | Wednesday|11:00-22:00 |
+		| Bootleggers Modern American Smokehouse | Food      |   4.0 | Thursday|11:00-22:00  |
+		| Bootleggers Modern American Smokehouse | Food      |   4.0 | Sunday|11:00-22:00    |
+		| Bootleggers Modern American Smokehouse | Food      |   4.0 | Saturday|11:00-22:00  |
+		+----------------------------------------+-----------+-------+-----------------------+
+
+		Table 2 - businesses with 2-3 stars:
+		SELECT
+		    b.name,
+		    c.category,
+		    b.stars,
+		    h.hours
+		FROM ((business b LEFT JOIN category c ON b.id = c.business_id) 
+		    LEFT JOIN hours h ON b.id = h.business_id)
+		WHERE 
+		    (c.category LIKE '%food%') AND 
+		    (b.city == 'Phoenix') AND 
+		    (h.hours IS NOT NULL) AND 
+		    (b.stars < 4.0)
+		ORDER BY stars DESC
+		+------------+-----------+-------+-----------------------+
+		| name       | category  | stars | hours                 |
+		+------------+-----------+-------+-----------------------+
+		| Five Guys  | Fast Food |   3.5 | Monday|10:00-22:00    |
+		| Five Guys  | Fast Food |   3.5 | Tuesday|10:00-22:00   |
+		| Five Guys  | Fast Food |   3.5 | Friday|10:00-22:00    |
+		| Five Guys  | Fast Food |   3.5 | Wednesday|10:00-22:00 |
+		| Five Guys  | Fast Food |   3.5 | Thursday|10:00-22:00  |
+		| Five Guys  | Fast Food |   3.5 | Sunday|10:00-22:00    |
+		| Five Guys  | Fast Food |   3.5 | Saturday|10:00-22:00  |
+		| Starbucks  | Food      |   3.0 | Monday|5:00-20:00     |
+		| Starbucks  | Food      |   3.0 | Tuesday|5:00-20:00    |
+		| Starbucks  | Food      |   3.0 | Friday|5:00-20:00     |
+		| Starbucks  | Food      |   3.0 | Wednesday|5:00-20:00  |
+		| Starbucks  | Food      |   3.0 | Thursday|5:00-20:30   |
+		| Starbucks  | Food      |   3.0 | Sunday|5:00-20:00     |
+		| Starbucks  | Food      |   3.0 | Saturday|5:00-20:00   |
+		| McDonald's | Fast Food |   2.0 | Monday|5:00-23:00     |
+		| McDonald's | Fast Food |   2.0 | Tuesday|5:00-23:00    |
+		| McDonald's | Fast Food |   2.0 | Friday|5:00-0:00      |
+		| McDonald's | Fast Food |   2.0 | Wednesday|5:00-23:00  |
+		| McDonald's | Fast Food |   2.0 | Thursday|5:00-23:00   |
+		| McDonald's | Fast Food |   2.0 | Sunday|5:00-23:00     |
+		| McDonald's | Fast Food |   2.0 | Saturday|5:00-0:00    |
+		+------------+-----------+-------+-----------------------+
+
+	ii. Do the two groups you chose to analyze have a different number of reviews?
+	         
+		Total review count of businesses with 4-5 stars is 3,115 review counts,
+		while total review count of businesses with 2-3 stars is 861 review counts.
+		Therefore, There is a different number of reviews between the two groups.
+
+			SQL code used for analysis:
+
+				SELECT
+				    SUM(review_count) AS FourStarsOrMore
+				FROM ((business b LEFT JOIN category c ON b.id = c.business_id) 
+				    LEFT JOIN hours h ON b.id = h.business_id)
+				WHERE 
+				    (c.category LIKE '%food%') AND 
+				    (b.city == 'Phoenix') AND 
+				    (h.hours IS NOT NULL) AND 
+				    (b.stars >= 4.0)
+				+-----------------+
+				| FourStarsOrMore |
+				+-----------------+
+				|            3115 |
+				+-----------------+
+
+				SELECT
+				    SUM(review_count) AS LessThanFourStars
+				FROM ((business b LEFT JOIN category c ON b.id = c.business_id) 
+				    LEFT JOIN hours h ON b.id = h.business_id)
+				WHERE 
+				    (c.category LIKE '%food%') AND 
+				    (b.city == 'Phoenix') AND 
+				    (h.hours IS NOT NULL) AND 
+				    (b.stars < 4.0)
+				+-------------------+
+				| LessThanFourStars |
+				+-------------------+
+				|               861 |
+				+-------------------+
+
+	iii. Are you able to infer anything from the location data provided between these two groups? Explain.
+
+		It has the exact address data for each business, but 'neighborhood' values are mostly NULL for both of the groups.
+		With exact location data, we won't be able to extract any insights.
+		But I believe with 'neighborhood' data, we will be able to find more useful findings.
+
+	SQL code used for analysis:
+
++----------------------------------------+-----------+-----------------------------+--------------+
+| name                                   | category  | address                     | neighborhood |
++----------------------------------------+-----------+-----------------------------+--------------+
+| Bootleggers Modern American Smokehouse | Food      | 3375 E Shea Blvd            |              |
+| Charlie D's Catfish & Chicken          | Seafood   | 1153 E Jefferson St         |              |
+| Five Guys                              | Fast Food | 2641 N 44th St, Ste 100     |              |
+| McDonald's                             | Fast Food | 1850 S 7th St               |              |
+| Starbucks                              | Food      | 4605 E Chandler Blvd, Ste A |              |
++----------------------------------------+-----------+-----------------------------+--------------+
+
+-----------------------------------------------------------------------------------------
+
+2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
+		
+	i. Difference 1:
+
+		Number of open businesses vs. number of closed businesses.
+		(8,480 vs. 1,520)
+	         
+	ii. Difference 2:
+
+		Big difference in total review count.
+		(26,9300 vs. 35,261)
+	         
+		SQL code used for analysis:
+
+		SELECT 
+		    COUNT(name)AS NumberOfBusinesses,
+		    is_open AS OPEN_1_CLOSE_0,
+		    SUM(review_count) AS TotalReviewCount,
+		    AVG(stars) AS AverageStars
+		FROM business
+		GROUP BY is_open
+
+		+--------------------+----------------+------------------+---------------+
+		| NumberOfBusinesses | OPEN_1_CLOSE_0 | TotalReviewCount |  AverageStars |
+		+--------------------+----------------+------------------+---------------+
+		|               1520 |              0 |            35261 | 3.52039473684 |
+		|               8480 |              1 |           269300 | 3.67900943396 |
+		+--------------------+----------------+------------------+---------------+
+
+-----------------------------------------------------------------------------------------
+
+3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
+
+Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
+	
+	i. Indicate the type of analysis you chose to do:
+	        
+		Research the user accounts, and find out all about users' account history such as; when did they sign up, amount of users joined per year, and user's behavior, etc. These data will be helpful for Yelp's marketing department in order to target more users to become a Yelp's member.
+
+		(Dataset range from 2005 - 2017)
+	         
+	ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
+
+		From the resulting table, user's data is range from year 2005 to 2017.
+		There are 3,454 users joined within the spand of 12 years.
+		With 3,454 accounts, and average of 4.2 years per account, that is below median line of 6 years.
+		That means most users joined after the second half period.
+			(First period: 2005 - 2010
+			Second period: 2011 - 2017)
+		Number of users joined increased rapidly starting around 2010-2011, and peaked in 2014, then decreased drastically in 2017.
+		Therefore, we have to find out what changed in 2017 and the cause of it.
+
+	iii. Output of your finished dataset:
+
+	Column Names:
+		  I. Total number of users: 3,454.
+		 II. Oldest account joined: in 2005.
+		III. Number of Years the oldest account has joined: 12 years.
+		 IV. Newest account joined: in 2017.
+		  V. Number of Years the newest account has joined: 0 years.
+		 VI. Average years joined for all accounts: ~ 4.2 years.
+		VII. Median years joined for all accounts: ~ 6 years.
+
+     I          II             III            IV              V            VI         VII
++----------+-----------+-----------------+-----------+-----------------+--------+-----------+
+| NumUsers | OldestAcc | NumYrsOldestAcc | NewestAcc | NumYrsNewestAcc | AvgYrs | MedianYrs |
++----------+-----------+-----------------+-----------+-----------------+--------+-----------+
+|     3454 | 2005      |              12 | 2017      |               0 | 4.1995 |         6 |
++----------+-----------+-----------------+-----------+-----------------+--------+-----------+
+
+		+-------------+---------------------+
+		| JoinedSince | NumberOfUsersJoined |
+		+-------------+---------------------+
+		| 2005        |                  13 |
+		| 2006        |                  49 |
+		| 2007        |                 133 |
+		| 2008        |                 273 |
+		| 2009        |                 513 |
+		| 2010        |                 801 |
+		| 2011        |                1233 |
+		| 2012        |                1282 |
+		| 2013        |                1369 |
+		| 2014        |                1541 |
+		| 2015        |                1438 |
+		| 2016        |                1019 |
+		| 2017        |                 336 |
+		+-------------+---------------------+
+
+	iv. Provide the SQL code you used to create your final dataset:
+
+		(Since the dataset stopped at year 2017, we cannot use STRFTIME('%Y', 'now') to find average and median becuase it will produce incorret data)
+
+		SELECT 
+		    COUNT(DISTINCT name) AS NumUsers,
+		    MIN(STRFTIME('%Y', yelping_since)) AS OldestAcc,
+		    (SELECT
+		        MAX(STRFTIME('%Y', 'now') - STRFTIME('%Y', yelping_since))
+		    FROM user
+		    ) AS NumYrsOldestAcc,
+		    MAX(STRFTIME('%Y', yelping_since)) AS NewestAcc,
+		    (SELECT
+		        MIN(STRFTIME('%Y', 'now') - STRFTIME('%Y', yelping_since))
+		    FROM user
+		    ) AS NumYrsNewestAcc,
+		    AVG(STRFTIME('%Y', 'now') -  STRFTIME('%Y', yelping_since)) AS AvgYrs,
+		    (((SELECT
+		        MAX(STRFTIME('%Y', 'now') - STRFTIME('%Y', yelping_since))
+		    FROM user
+		    )
+		    +
+		    (SELECT
+		        MIN(STRFTIME('%Y', 'now') - STRFTIME('%Y', yelping_since))
+		    FROM user
+		    ))/2)
+		    AS MedianYrs
+		FROM user;
+
+		SELECT 
+		    STRFTIME('%Y', yelping_since) AS JoinedSince,
+		    COUNT(DISTINCT id) AS NumberOfUsersJoined
+		FROM user
+		GROUP BY JoinedSince;
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------

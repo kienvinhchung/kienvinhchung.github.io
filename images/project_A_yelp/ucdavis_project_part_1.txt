@@ -1,0 +1,435 @@
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+Part 1: Yelp Dataset Profiling and Understanding
+
+-----------------------------------------------------------------------------------------
+
+1. Profile the data by finding the total number of records for each of the tables below:
+	
+		i. Attribute table = 10,000 rows.
+
+		ii. Business table = 10,000 rows.
+
+		iii. Category table = 10,000 rows.
+
+		iv. Checkin table = 10,000 rows.
+
+		v. elite_years table = 10,000 rows.
+
+		vi. friend table = 10,000 rows.
+
+		vii. hours table = 10,000 rows.
+
+		viii. photo table = 10,000 rows.
+
+		ix. review table = 10,000 rows. 
+
+		x. tip table = 10,000 rows. 
+
+		xi. user table = 10,000 rows.
+	
+				SQL code used to arrive at answer: 
+
+					SELECT * FROM table_name
+
+-----------------------------------------------------------------------------------------
+
+2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
+
+	Primary Key: PK
+	Foreign Keys: FK, FK1, FK2
+
+		i. Business = 
+					10,000 distinct records by PK 'id'.
+
+		ii. Hours = 
+					1,562 distinct records by FK 'business_id'.
+
+		iii. Category = 
+					2,643 distinct records by FK 'business_id'.
+
+		iv. Attribute = 
+					1,115 distinct records by FK 'business_id'.
+
+		v. Review = 
+					10,000 distinct records by PK 'id',
+					OR
+					8,090 distinct records by FK1 'business_id',
+					OR
+					9,581 distinct records by FK2 'user_id'.
+
+		vi. Checkin = 
+					493 distinct records by FK 'business_id'.
+
+		vii. Photo = 
+					10,000 distinct records by PK 'id',
+					OR
+					6,493 distinct records by FK 'business_id'. 
+
+		viii. Tip = 
+					537 distinct records by FK1 'user_id',
+					OR
+					3,979 distinct records by FK2 'business_id'.
+
+		ix. User = 
+					10,000 distinct records by PK 'id'. 
+
+		x. Friend = 
+					11 distinct records by FK 'user_id'.
+
+		xi. Elite_years = 
+					2,780 distinct records by FK 'user_id'.
+
+	Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
+
+		SQL code used to arrive at answer: 
+
+			SELECT DISTINCT column_name FROM table_name
+
+-----------------------------------------------------------------------------------------
+
+3. Are there any columns with null values in the User table? Indicate "yes," or "no."
+
+	Answer: no
+	
+		SQL code used to arrive at answer: 
+
+			SELECT *
+			FROM User
+			WHERE 
+				(id IS NULL) 
+				OR 
+				(name IS NULL) 
+				OR 
+				(review_count IS NULL) 
+				OR 
+				(yelping_since IS NULL) 
+				OR 
+				(useful IS NULL) 
+				OR 
+				(funny IS NULL) 
+				OR 
+				(cool IS NULL) 
+				OR 
+				(fans IS NULL) 
+				OR 
+				(average_stars IS NULL) 
+				OR 
+		    	(compliment_hot IS NULL) 
+		    	OR 
+		    	(compliment_more IS NULL) 
+		    	OR
+		    	(compliment_profile IS NULL)
+		    	OR 
+		    	(compliment_cute IS NULL)
+		    	OR
+		    	(compliment_list IS NULL)
+		    	OR 
+		    	(compliment_note IS NULL)
+		    	OR
+		    	(compliment_plain IS NULL)
+		    	OR 
+		    	(compliment_cool IS NULL)
+		    	OR
+		    	(compliment_funny IS NULL)
+		    	OR
+		    	(compliment_writer IS NULL)
+		    	OR
+		    	(compliment_photos IS NULL)
+	
+-----------------------------------------------------------------------------------------
+	
+4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
+
+	i. Table: Review, Column: Stars
+	
+		min: 1		max: 5		avg: 3.7082
+		
+	
+	ii. Table: Business, Column: Stars
+	
+		min: 1		max: 5		avg: 3.6549
+		
+	
+	iii. Table: Tip, Column: Likes
+	
+		min: 0		max: 2		avg: 0.0144
+		
+	
+	iv. Table: Checkin, Column: Count
+	
+		min: 1		max: 53		avg: 1.9414
+		
+	
+	v. Table: User, Column: Review_count
+	
+		min: 0		max: 2000	avg: 24.2995
+	
+		SQL code used to arrive at answer: 
+
+			SELECT 
+				MIN(column_name)
+			FROM table_name;
+
+			SELECT 
+				MAX(column_name)
+			FROM table_name;
+
+			SELECT 
+				AVG(column_name) 
+			FROM table_name;
+
+-----------------------------------------------------------------------------------------
+
+5. List the cities with the most reviews in descending order:
+
+	SQL code used to arrive at answer:
+
+		SELECT 
+		    city,
+		    SUM(review_count) AS ReviewCount
+		FROM business
+		GROUP BY city
+		ORDER BY ReviewCount DESC
+	
+	Copy and Paste the Result Below:
+
+		+-----------------+-------------+
+		| city            | ReviewCount |
+		+-----------------+-------------+
+		| Las Vegas       |       82854 |
+		| Phoenix         |       34503 |
+		| Toronto         |       24113 |
+		| Scottsdale      |       20614 |
+		| Charlotte       |       12523 |
+		| Henderson       |       10871 |
+		| Tempe           |       10504 |
+		| Pittsburgh      |        9798 |
+		| Montréal        |        9448 |
+		| Chandler        |        8112 |
+		| Mesa            |        6875 |
+		| Gilbert         |        6380 |
+		| Cleveland       |        5593 |
+		| Madison         |        5265 |
+		| Glendale        |        4406 |
+		| Mississauga     |        3814 |
+		| Edinburgh       |        2792 |
+		| Peoria          |        2624 |
+		| North Las Vegas |        2438 |
+		| Markham         |        2352 |
+		| Champaign       |        2029 |
+		| Stuttgart       |        1849 |
+		| Surprise        |        1520 |
+		| Lakewood        |        1465 |
+		| Goodyear        |        1155 |
+		+-----------------+-------------+
+
+-----------------------------------------------------------------------------------------
+
+6. Find the distribution of star ratings to the business in the following cities:
+
+	i. Avon
+
+		SQL code used to arrive at answer:
+
+			SELECT 
+			    stars,
+			    COUNT(stars)
+			FROM business
+			WHERE city == 'Avon'
+			GROUP BY stars
+
+		Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
+
+			+-------+--------------+
+			| stars | COUNT(stars) |
+			+-------+--------------+
+			|   1.5 |            1 |
+			|   2.5 |            2 |
+			|   3.5 |            3 |
+			|   4.0 |            2 |
+			|   4.5 |            1 |
+			|   5.0 |            1 |
+			+-------+--------------+
+
+	ii. Beachwood
+
+		SQL code used to arrive at answer:
+
+			SELECT 
+			    stars,
+			    COUNT(stars)
+			FROM business
+			WHERE city == 'Beachwood'
+			GROUP BY stars
+
+		Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
+
+			+-------+--------------+
+			| stars | COUNT(stars) |
+			+-------+--------------+
+			|   2.0 |            1 |
+			|   2.5 |            1 |
+			|   3.0 |            2 |
+			|   3.5 |            2 |
+			|   4.0 |            1 |
+			|   4.5 |            2 |
+			|   5.0 |            5 |
+			+-------+--------------+
+		
+-----------------------------------------------------------------------------------------
+
+7. Find the top 3 users based on their total number of reviews:
+		
+	SQL code used to arrive at answer:
+
+		SELECT 
+		    name,
+		    review_count
+		FROM user
+		ORDER BY review_count DESC
+		LIMIT 3
+		
+	Copy and Paste the Result Below:
+
+		1/ Gerald: 2,000 review count.
+
+		2/ Sara: 1,629 review count.
+
+		3/ Yuri: 1,339 review count.
+
+			+--------+--------------+
+			| name   | review_count |
+			+--------+--------------+
+			| Gerald |         2000 |
+			| Sara   |         1629 |
+			| Yuri   |         1339 |
+			+--------+--------------+
+
+-----------------------------------------------------------------------------------------
+
+8. Does posing more reviews correlate with more fans?
+
+	Please explain your findings and interpretation of the results:
+
+		Posing more reviews is somewhat correlate with more fans.
+		It doesn't mean having more review counts is also having more fans,
+		but posing more reviews tends to increase more chances of attracting fans.
+
+		SQL Codes and resulting tables to support findings:
+
+		SELECT								SELECT
+		    review_count,						review_count,
+		    fans								fans
+		FROM user							FROM user
+		ORDER BY review_count DESC			ORDER BY fans DESC	
+
+		+--------------+------+				+--------------+------+	
+		| review_count | fans |				| review_count | fans |
+		+--------------+------+				+--------------+------+
+		|         2000 |  253 |				|          609 |  503 |
+		|         1629 |   50 |				|          968 |  497 |
+		|         1339 |   76 |				|         1153 |  311 |
+		|         1246 |  101 |				|         2000 |  253 |
+		|         1215 |  126 |				|          930 |  173 |
+		|         1153 |  311 |				|          813 |  159 |
+		|         1116 |   16 |				|          377 |  133 |
+		|         1039 |  104 |				|         1215 |  126 |
+		|          968 |  497 |				|          862 |  124 |
+		|          930 |  173 |				|          834 |  120 |
+		|          904 |   38 |				|          861 |  115 |
+		|          864 |   43 |				|          408 |  111 |
+		|          862 |  124 |				|          255 |  105 |
+		|          861 |  115 |				|         1039 |  104 |
+		|          842 |   85 |				|          694 |  101 |
+		|          836 |   37 |				|         1246 |  101 |
+		|          834 |  120 |				|          307 |   96 |
+		|          813 |  159 |				|          584 |   89 |
+		|          775 |   61 |				|          842 |   85 |
+		|          754 |   78 |				|          220 |   84 |
+		|          702 |   35 |				|          408 |   81 |
+		|          696 |   10 |				|          178 |   80 |
+		|          694 |  101 |				|          754 |   78 |
+		|          676 |   25 |				|         1339 |   76 |
+		|          675 |   45 |				|          161 |   73 |
+		+--------------+------+				+--------------+------+													
+
+		(Output limit exceeded, 25 of 10000 total rows shown)										
+										
+-----------------------------------------------------------------------------------------
+
+9. Are there more reviews with the word "love" or with the word "hate" in them?
+
+	Answer: There are more reviews with the word "love" than reviews with the word "hate", 1780 vs 232.
+
+	
+	SQL code used to arrive at answer:
+
+		SELECT 
+		    COUNT(text) AS number_of_love
+		FROM review
+		WHERE text LIKE '%love%'
+
+		+----------------+
+		| number_of_love |
+		+----------------+
+		|           1780 |
+		+----------------+
+
+		SELECT 
+		    COUNT(text) AS number_of_hate
+		FROM review
+		WHERE text LIKE '%hate%'
+
+		+----------------+
+		| number_of_hate |
+		+----------------+
+		|            232 |
+		+----------------+
+
+-----------------------------------------------------------------------------------------
+
+10. Find the top 10 users with the most fans:
+
+	Answer:
+
+		 1. Amy
+		 2. Mimi
+		 3. Harald
+		 4. Gerald
+		 5. Christine
+		 6. Lisa
+		 7. Cat
+		 8. William
+		 9. Fran
+		10. Lissa
+
+	SQL code used to arrive at answer:
+	
+		SELECT
+		    name,
+		    fans
+		FROM user
+		ORDER BY fans DESC
+		LIMIT 10
+	
+	Copy and Paste the Result Below:
+
+		+-----------+------+
+		| name      | fans |
+		+-----------+------+
+		| Amy       |  503 |
+		| Mimi      |  497 |
+		| Harald    |  311 |
+		| Gerald    |  253 |
+		| Christine |  173 |
+		| Lisa      |  159 |
+		| Cat       |  133 |
+		| William   |  126 |
+		| Fran      |  124 |
+		| Lissa     |  120 |
+		+-----------+------+
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------

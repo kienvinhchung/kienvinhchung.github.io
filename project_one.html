@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+	<head>
+		<title>Kien's Project 1</title>
+		<!-- Icon to show next to browser title aka Favicon-->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon1_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon1_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon1_io/favicon-16x16.png">
+		<link rel="manifest" href="favicon1_io/site.webmanifest">
+		<!-- -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://kit.fontawesome.com/e66339b4ca.js" crossorigin="anonymous"></script>
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K1EY70SZ5E"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-K1EY70SZ5E');
+		</script>
+
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+				<div class="top">
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/avatar_2.jpg" alt="" style="border: 1px solid #2d55e7"/></span> <!-- 2 Options: avatar_1(graduation pic) OR avatar_2(business pic) -->
+							<h1 id="title" style="color: #2d55e7;">Kien Vinh Chung</h1>
+							<p>Data Science - Data Analyst</p>
+						</div>
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html#portfolio" id="backto-portfolio-link"><span class="icon solid fa-briefcase">Back to My Portfolio</span></a></li>
+								<li><a href="#aboutthisproject" id="aboutthisproject-link"><span class="icon solid fa-book-open">About this Project</span></a></li>
+                                <li><a href="#visualization" id="visualization-link"><span class="icon solid fa-chart-column">Visualization</span></a></li>
+                                <li><a href="#keyfindings" id="keyfindings-link"><span class="icon solid fa-check-to-slot">Key Findings</span></a></li>
+								<li><a href="#conclusion" id="conclusion-link"><span class="icon solid fa-circle-check">Conclusion</span></a></li>
+								<li><a href="#recommendations" id="recommendations-link"><span class="icon solid fa-list-check">Recommendations</span></a></li>
+								<li><a href="#analysis" id="analysis-link"><span class="icon solid fa-file-code">My analysis</span></a></li>
+								<li><a href="#dataset" id="dataset-link"><span class="icon solid fa-database">Dataset Info & Download</span></a></li>
+							</ul>
+						</nav>
+				</div>
+				<div class="bottom">
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/kien-vinh-chung-534531236/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/kienvinhchung" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+							<li><a href="mailto:kien.vinh.chung@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="tel:+14699968230" class="icon solid fa-phone"><span class="label">TEL</span></a></li>
+							<li><a href="sms:+14699968230" class="icon solid fa-comments"><span class="label">SMS</span></a></li>
+						</ul>
+				</div>
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+				<!-- About -->
+                <section id="aboutthisproject" class="two">
+                    <div class="container">
+                        <header>
+							<h2>About this project</h2>
+							<h3>Cyclistic bike-share marketing analysis</h3>
+                        </header>
+						<img src="images/project_1_bike/logo.png" alt="cyclistic_logo" />
+						<br>
+						<br>
+						<h3>Scenario</h3>
+						<p>You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. <br>
+							The director of marketing, Lily Moreno, believes the company’s future success depends on maximizing the number of annual memberships. <br>
+							Therefore, your team wants to understand <strong><bold>how casual riders and annual members use Cyclistic bikes differently</bold></strong> . <br>
+							From these insights, your team will design a new marketing strategy to convert casual riders into annual members. <br>
+							But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations.</p>
+						<h3>Prerequisites</h3>
+						<p>Cyclistic's finance analysts have concluded that riders with annual membership are much more profitable than casual riders. <br>
+							Although the pricing flexibility helps Cyclistic attract more customers, the marketing director believes that maximizing the number of annual members will be key to future growth.</p>
+						<h3>Goals</h3>
+						<p>Design marketing strategies aimed at converting casual riders into annual riders. <br>
+							In order to do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ. <br>
+							Moreno and her team are interested in analyzing the Cyclistic hitorical bike trip data to identify trends.</p>
+						<ol>
+							<h3>Objectives</h3>
+								<div style="text-align: left;">
+								<li>Collect and prepare the previous 12 months of the company's trips data (December 2021 to November 2022).</li>
+								<li>Combine, clean, and process dataset to get ready for analyzing.</li>
+								<li>Analyze dataset, and visualize with ggplot() function.</li>
+								<li>Share the conclusion of this analysis with the marketing director in order to answer the questions to support the company in making business decisions.</li>
+								</div>
+						</ol>
+                    </div>
+                </section>
+
+				<!-- Visualization -->
+                <section id="visualization" class="three">
+                    <div class="container">
+                        <header>
+                            <h2>Visualization</h2>
+                        </header>
+                        <p>Click the graphs for full size image in new browser tab</p>
+
+                        <div class="row" style="margin-top: 2px;">
+                            <div class="col-4 col-12-mobile">
+                                <article class="item" style="margin-bottom: 5px;">
+                                    <a href="images/project_1_bike/number_of_rides.png" target="_blank" class="image fit"><img src="images/project_1_bike/number_of_rides.png" alt="number_of_rides" /></a>
+                                </article>
+                            </div>
+                            <div class="col-4 col-12-mobile">
+                                <article class="item" style="margin-bottom: 5px;">
+                                    <a href="images/project_1_bike/average_duration.png" target="_blank" class="image fit"><img src="images/project_1_bike/average_duration.png" alt="average_duration" /></a>
+                                </article>
+                            </div>
+							<div class="col-4 col-12-mobile">
+                                <article class="item" style="margin-bottom: 5px;">
+                                    <a href="images/project_1_bike/bike_type.png" target="_blank" class="image fit"><img src="images/project_1_bike/bike_type.png" alt="bike_type" /></a>
+                                </article>
+                            </div>
+						</div>
+
+						<div class="row" style="margin-top: 2px;">
+							<div class="col-4 col-12-mobile"></div>
+							<div class="col-4 col-12-mobile">
+                                <article class="item" style="margin-bottom: 5px;">
+                                    <a href="images/project_1_bike/trips_by_month.png" target="_blank" class="image fit"><img src="images/project_1_bike/trips_by_month.png" alt="trips_by_month" /></a>
+                                </article>
+                            </div>
+                            
+							<div class="col-4 col-12-mobile"></div>
+						</div>
+
+                    </div>
+                </section>
+
+				<!-- Key findings -->
+                <section id="keyfindings" class="four">
+                    <div class="container">
+                        <header>
+                            <h2>Key Findings</h2>
+						</header>
+						<div class="float-left">
+							<ul>
+								<li><bold style="color: rgb(86,188,194)">Membership riders</bold> complete about 75% more rides compared to <bold style="color: rgb(231,125,114)">casual riders</bold> during the week.</li>
+								<li><bold style="color: rgb(86,188,194)">Membership riders</bold>' average duration stays consistent throughout weekdays and has slight bump on the weekend.</li>
+								<li>So, one of the main reasons for <bold style="color: rgb(86,188,194)">membership riders</bold> to sign up for annual membership is commuting to work.</li>
+								<br>
+								<li>The average duration of trips done by <bold style="color: rgb(231,125,114)">casual riders</bold> 
+									is significantly higher than trips done by <bold style="color: rgb(86,188,194)">membership riders</bold> in any day of the week.</li>
+								<li><bold style="color: rgb(231,125,114)">Casual riders</bold> has shorter average duration during weekdays and longer average duration on the weekend.</li>
+								<li><bold style="color: rgb(231,125,114)">Casual riders</bold> also complete more rides on the weekend compared to weekdays.</li>
+								<br>
+								<li><bold style="color: rgb(231,125,114)">Casual riders</bold> are 35% more likely to ride an electric bike than a classic bike, and this ratio is about 50/50 for <bold style="color: rgb(86,188,194)">membership riders</bold>.</li>
+								<br>
+								<li>The number of rides in July is at least 8x more compared to the number of rides in January.</li>
+								<p>&emsp;(In Chicago, July is the <bold style="color: rgb(250,88,46)">hottest</bold> month, and January is the <bold style="color: rgb(53,50,250)">coldest</bold> month according to Google)</p>
+							</ul>
+						</div>
+                    </div>
+                </section>
+
+				<!-- Conclusion -->
+				<section id="conclusion" class="five">
+					<div class="container">
+						<header>
+							<h2>Conclusion</h2>
+						</header>
+						<div>
+							<p><bold style="color: rgb(86,188,194)">Membership riders</bold> have high and consistent number of rides as well as consistent average duration from Monday to Friday, 
+								meaning that they use the bikes to commute to work daily, 
+								and decide to sign up for the annual membership in order to save money in the long run.
+							</p>
+							<p>
+								<bold style="color: rgb(231,125,114)">Casual riders</bold> are most likely tourists/city visitors, and new customers. 
+								Their average duration is shorter in the middle of the week and longer on the weekend, 
+								and they complete more rides on the weekend.
+								Therefore, they tend to use the bikes for leisure purposes and weekend rides.
+							</p>
+							<p>
+								<bold style="color: rgb(231,125,114)">Casual riders</bold> prefer electric bikes over classic bikes.
+							</p>
+							<p>
+								The bike-sharing program tends to become busier during warmer weather, and the opposite occurs during colder weather.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Recommendations -->
+				<section id="recommendations" class="six">
+					<div class="container">
+						<header>
+							<h2>Recommendations</h2>
+						</header>
+						<p>In order to attract more casual riders and convert them to Cyclistic members, here are some recommendations:</p>
+						<div class="float-left">
+							<ol class="upper-roman">
+									<li>
+										Because the majority of casual riders are tourists/visitors, we want to target only the small group of casual riders that are local to the city in order to maximize the profits. 
+										Therefore, we should introduce a membership tier at a lower price point compared to the more premium annual membership. 
+										This new membership tier is for the locals that don't need this bike-share program for commuting to work. 
+										But it still allows new customers to enjoy the program on the weekend at a more afforadable price point.
+										
+									</li>
+								<br>
+									<li>
+										Implement a limited-time promotion for customers who sign up for the membership for the first time. The promotion can either be "30 day free trial", or "half-price off 1st month", depending on the company's budget. 
+										The purpose of these promotions is to introduce the benefits, convienence, and potential savings to new members.
+									</li>
+								<br>
+									<li>
+										Add more electric bikes into the existing fleet to meet the casual riders' demand.
+									</li>
+							</ol>
+						</div>
+					</div>
+				</section>
+
+				<!-- Analysis -->
+				<section id="analysis" class="seven">
+                    <div class="container">
+                        <header>
+                            <h2>My Analysis</h2>
+                        </header>
+						<div>
+							<p>
+								Click RStudio icon to view the complete analysis report in new browser tab 
+								<br> 
+								<br> 
+								<a href="images/project_1_bike/project_1_analysis.html" target="_blank" class="image"><img style="border-radius: 10%;" src="images/project_1_bike/r_studio.png" alt="project_1_analysis" /></a>
+							</p>
+							<a href="/images/project_1_bike/project_1_analysis.html" download>[Also available for download here]</a>
+							<p></p>
+							<p>Analyzed using R Programming language and RStudio software. <br>Analysis report was written in R Markdown (RMD), <br>and knitted to a Hypertext Markup Language (HTML) file.</p>
+						</div>
+                    </div>
+                </section>
+
+				<!-- Dataset -->
+				<section id="dataset" class="eight">
+					<div class="container">
+						<header>
+							<h2>Dataset Information & Download</h2>
+							<p>Project Start Date: December, 2022 </p>
+						</header>
+						<p>
+							<a href="https://github.com/kienvinhchung/kienvinhchung.github.io/blob/main/images/project_1_bike/tripdata.zip" target="_blank">[Download zip file via Github LFS here]</a>
+						</p>
+						<p>
+							Previous 12 months of Cyclistic's trip data 
+							<br>
+							December 2021 to November 2022
+						</p>
+						<p>
+							Total of 5,733,451 trip records within the past 12 months
+							<br>
+							Around 5.7 million rows of raw data
+						</p>
+						<p>
+							After going through preparing, processing, and cleaning stage, <br>there are 5,552,874 rows of complete and reliable data 
+							<br>
+							Approximately 5.5 million trip records ready for analysis
+						</p>
+						<p>
+							<table style="border: 3px solid black;">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Month, Year</th>
+										<th>Number of trip record(s)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Decemeber, 2021</td>
+										<td>247,540</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>January, 2022</td>
+										<td>103,770</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>February, 2022</td>
+										<td>115,609</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>March, 2022</td>
+										<td>284,042</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>April, 2022</td>
+										<td>371,249</td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td>May, 2022</td>
+										<td>634,858</td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td>June, 2022</td>
+										<td>769,204</td>
+									</tr>
+									<tr>
+										<td>8</td>
+										<td>July, 2022</td>
+										<td>823,488</td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td>August, 2022</td>
+										<td>785,932</td>
+									</tr>
+									<tr>
+										<td>10</td>
+										<td>September, 2022</td>
+										<td>701,339</td>
+									</tr>
+									<tr>
+										<td>11</td>
+										<td>October, 2022</td>
+										<td>558,685</td>
+									</tr>
+									<tr>
+										<td>12</td>
+										<td>November, 2022</td>
+										<td>337,735</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>#</th>
+										<th>Total trips</th>
+										<th>5,733,451</th>
+									</tr>
+								</tfoot>
+							</table>
+						</p>
+					</div>
+				</section>
+				
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Kien Vinh Chung</li>
+						<li>All rights reserved</li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
