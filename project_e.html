@@ -45,12 +45,12 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="index.html#portfolio" id="backto-portfolio-link"><span class="icon solid fa-briefcase" style="color: red">Back to My Portfolio</span></a></li>
-								<li><a href="#aboutthisproject"><span class="">About this Project</span></a></li>
-								<li><a href="#tasks"><span>Tasks</span></a></li>
-                                <li><a href="#dashboard"><span>Power BI Dashboard</span></a></li>
-                                <li><a href="#transformation"><span>Data Transformation</span></a></li>
-								<li><a href="#pbix_file"><span>PBIX File Download</span></a></li>
-								<li><a href="#datasetinfodownload"><span>Dataset Info & Download</span></a></li>
+								<li><a href="#aboutthisproject"><span class="icon solid fa-book-open">About this Project</span></a></li>
+								<li><a href="#tasks"><span class="icon solid fa-list-check">Tasks</span></a></li>
+                                <li><a href="#dashboard"><span class="icon solid fa-gauge">Power BI Dashboard</span></a></li>
+								<li><a href="#pbix_file"><span class="icon solid fa-file">PBIX File Download</span></a></li>
+                                <li><a href="#transformation"><span class="icon solid fa-broom">Data Transformation</span></a></li>
+								<li><a href="#datasetinfodownload"><span class="icon solid fa-download">Dataset Info & Download</span></a></li>
 							</ul>
 						</nav>
 				</div>
@@ -80,11 +80,10 @@
 						<img src="images/project_E_powerBI_creditdefault/images.jpeg" width="200px" alt="powerBI_logo" />
 						<br>
 						<br>
-						<h3>Scenario</h3>
-						<br>
-                        <p>In this project, you will learn the basics of using Microsoft Power BI, which is one of the most popular business intelligence tools out there, and you will learn how to use ... to visualize the ...
-						</p>
-						<p>You will learn ...</p>
+						<h3>About</h3>
+                        <p>In this project, you will learn the basics of using Microsoft Power BI, which is one of the most popular business intelligence tools out there, and you will learn how to use this software to import, transform, and  visualize the dataset.</p>
+						<h3>About</h3>
+                        <p>You will clean and analyze the data from a credit card company. Then, visualize the trends and patterns of company' credit card defaults.</p>
                     </div>
                 </section>
 
@@ -135,11 +134,22 @@
                         <header>
                             <h2>Data Transformation</h2>
                         </header>
-                        <div class="float-center" style="width: 100%;">
-                            <img src="images/project_E_powerBI_creditdefault/raw_data.png" alt="raw_data" style="width: 48%; float: left; border: 2px solid black;">
-                            
-                            <img src="images/project_E_powerBI_creditdefault/better_data.png" alt="clean_data" style="width: 48%; float: right; border: 2px solid black;">
-                        </div>
+						<div class="float-left">
+							<ul>
+								<li>Delete incorrect header row, and assign the proper row to new header row.</li>
+								<li>Transform thirty-thousand rows of unreadable data from columns such as SEX, EDUCATION LEVEL, and MARITAL STATUS.
+									<ul style="list-style-type:square">
+										<li>Column 'SEX': 1=MALE, 2=FEMALE, and Other=UNKNOWN</li>
+										<li>Column 'EDUCATION_LEVEL: 1=GRADUATE, 2=UNDERGRADUATE, 3=HIGHSCHOOL, and Other=UNKNOWN</li>
+										<li>Column 'MARITAL_STATUS': 1= Married, 2=SINGLE, and Other=UNKNOWN</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="float-center" style="width: 100%;">
+							<img src="images/project_E_powerBI_creditdefault/raw_data.png" alt="raw_data" style="width: 48%; float: left; border: 2px solid black;">
+							<img src="images/project_E_powerBI_creditdefault/better_data.png" alt="clean_data" style="width: 48%; float: right; border: 2px solid black;">
+						</div>
                     </div>
                 </section>
 				
