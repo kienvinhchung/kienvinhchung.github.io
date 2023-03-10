@@ -6,7 +6,7 @@
 -->
 <html lang="en">
 	<head>
-		<title>Kien's Project A</title>
+		<title>Kien's Project D</title>
 		<!-- Icon to show next to browser title aka Favicon-->
 		<link rel="apple-touch-icon" sizes="180x180" href="favicon1_io/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="favicon1_io/favicon-32x32.png">
@@ -45,9 +45,11 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="index.html#portfolio" id="backto-portfolio-link"><span class="icon solid fa-briefcase" style="color: red">Back to My Portfolio</span></a></li>
-								<li><a href="#aboutthisproject" id="aboutthisproject-link"><span class="icon solid fa-book-open">About this Project</span></a></li>
-								<li><a href="#diagram" id="dataset-link"><span class="icon solid fa-diagram-next">Diagram</span></a></li>
-								<li><a href="#analysis" id="analysis-link"><span class="icon solid fa-file-code">My analysis</span></a></li>
+								<li><a href="#aboutthisproject"><span class="icon solid fa-book-open">About this Project</span></a></li>
+								<li><a href="#dashboard_live"><span class="icon solid fa-gauge">Live Interactive Dashboards</span></a></li>
+                                <li><a href="#dashboard_snapshots"><span class="icon solid fa-gauge">Snapshots of Dashboard</span></a></li>
+								<li><a href="#keyfindings"><span class="icon solid fa-chart-simple">Info & Key Findings</span></a></li>
+								<li><a href="#dataset"><span class="icon solid fa-download">Dataset</span></a></li>
 							</ul>
 						</nav>
 				</div>
@@ -70,60 +72,92 @@
                     <div class="container">
                         <header>
 							<h2>About this project</h2>
-							<h3>Yelp Relational Database Business & User Analysis</h3>
+							<h3></h3>
 							<br>
-							<h4>The purpose of this project is to showcase my skills and knowledge in Structured Query Language (SQL)</h4>
+							<h4>The purpose of this project is to showcase my skills and knowledge in IBM COGNOS Business Intelligence and Analytics with Watson Software.</h4>
                         </header>
-						<img src="images/project_yelp/yelp.png" alt="yelp_logo" />
+						<img src="images/project_ibm_cognos/logo.jpeg" alt="cognos_logo" />
 						<br>
 						<br>
 						<h3>Scenario</h3>
-						<br>
-						<p>You are going to be playing the role of a real-world data scientist using SQL to both answer specific questions for an organization and make inferences based on your discoveries.</p>
-						<p>You will be using a dataset from a US-based organization called Yelp, which provides a platform for users to provide reviews and 
-							rate their interactions with a variety of organizations – businesses, restaurants, health clubs, hospitals, local governmental offices, charitable organizations, etc. 
-							Yelp has made a portion of this data available for personal, educational, and academic purposes.</p>
+                        <br>
+						<p>As a regional manager for a chain of car dealerships you need to build out a dashboard to allow you to understand your sales and service departments.</p>
                     </div>
                 </section>
 
-				<!-- ER Diagram -->
-				<section id="diagram" class="three">
-					<div class="container">
-						<header>
-							<h2>Entity-Relationship (ER) Diagram</h2>
-							<p>Click the diagram for full size image</p>
-						</header>
-						<a href="images/project_yelp/YelpDataset_ER_Diagram.pdf" target="_blank"><img src="images/project_yelp/YelpDataset_ER_Diagram.png" style="width: 80%; border-radius: 25px; border: 5px solid black;" alt="diagram"></a>
-					</div>
-				</section>
-
-				<!-- Analysis -->
-				<section id="analysis" class="four">
+				<!-- Dashboard Sales -->
+				<section id="dashboard_live" class="three">
                     <div class="container">
                         <header>
-                            <h2>My Analysis</h2>
+                            <h2>IBM Cognos Live Interactive Dashboard</h2>
                         </header>
-						<br>
-						<div>
-							<h3>Part I</h3>
-							<p>Profiling and Understanding Yelp Dataset
-								<br>
-								<a href="images/project_yelp/ucdavis_project_part_1.txt" target="_blank">[View analysis here]</a>
-							</p>
-							<br>
-							<h3>Part II</h3>
-							<p>Inferences and Analysis
-								<br>
-								<a href="images/project_yelp/ucdavis_project_part_2.txt" target="_blank">[View analysis here]</a>
-							</p>
-							<br>
-							<a href="images/project_yelp/ucdavis_project_full" download>[Complete file available for download here]</a>
-							<p>Open with any Text Editor <br>Recommend <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a></p>
-							
+						<p>Live and Interactive Dashboard - Use 'Sales' & 'Service' tab to navigate between dashboards <br>Click on Fullscreen icon for the best experience</p>
+                        <iframe src="https://us3.ca.analytics.ibm.com/bi/?perspective=dashboard&amp;pathRef=.my_folders%2FAutomotive%2BIndustry%2BSales%2B%2526%2BService%2BDashboards&amp;closeWindowOnLastView=true&amp;ui_appbar=false&amp;ui_navbar=false&amp;shareMode=embedded&amp;action=view&amp;mode=dashboard&amp;subView=model00000186c8479d41_00000003" width="100%" height="600"  frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen="" style="border: 5px solid black;"></iframe>
+                    </div>
+                </section>
+
+                <!-- Dashboard Service -->
+				<section id="dashboard_snapshots" class="four">
+                    <div class="container">
+                        <header>
+                            <h2>Snapshots of dashboard</h2>
+                        </header>
+                        <h3>Sales Data</h3>
+                        <img src="images/project_ibm_cognos/sales.png" alt="dashboard" style="border: 5px solid black; width: 60%;">
+                        <p></p>
+                        <h3>Service and Recalls Data</h3>
+                        <img src="images/project_ibm_cognos/service.png" alt="dashboard" style="border: 5px solid black; width: 60%;">
+                    </div>
+                </section>
+
+                <!-- Findings -->
+				<section id="keyfindings" class="five">
+                    <div class="container">
+                        <header>
+                            <h2>Information & Key Findings</h2>
+                        </header>
+						<div class="float-left">
+							<h3>Sales Data Dashboard</h3>
+                            <ul>
+                                <li>Total profit (top graph #1)</li>
+                                <li>Total quantity sold (top graph #2)</li>
+                                <li>Quantity sold by car model (top graph #3)</li>
+                                <li>Average quantity sold (top graph #4)</li>
+                                <li>Profit by dealers-Dealer ID (center graph #5)</li>
+								<h4 style="color: purple;">Hudson is the most popular car model with 20,365 unit sold compared to the total quantity sold of 58,118. <br>That is 35% of the quantity sold.</h4>
+                            </ul>
+						</div>
+                        <div class="float-left">
+							<h3>Service and Recalls Data Dashboard</h3>
+                            <ul>
+                                <li>Total number of recalls per model of car (top-left graph #1)</li>
+                                <li>Total cusomer sentiment count by positive, neutral, and negative reviews (top-right graph #2)</li>
+                                <li>Quantity of cars sold per month compared to the profit (bottom-left graph #3)</li>
+                                <li>Number of recalls by model and affectted system with heatmap (bottom-right graph #4)</li>
+								<h4 style="color: purple;">Hudson model has the second lowest number of recalls. <br>
+									From the heatmap, this model seems to have to least system issues, the darkest fields (number of recalls by affected system) are 'Airbag' and 'Other', <br>
+									which are significantly less concerning compared to other issues.</h4>
+                            </ul>
 						</div>
                     </div>
                 </section>
-				
+
+				<!-- Dataset -->
+				<section id="dataset" class="six">
+					<div class="container">
+						<header>
+                            <h2>Dataset</h2>
+                        </header>
+                        <div>
+                            <p>Dataset available on IBM Community website <br>
+                                <a href="https://community.ibm.com/accelerators/?context=analytics&type=Data&industry=Automotive" target="_blank">https://community.ibm.com/accelerators/?context=analytics&type=Data&industry=Automotive</a> <br>
+                                Term of Use <br>
+                                <a href="https://developer.ibm.com/terms/ibm-developer-terms-of-use/">https://developer.ibm.com/terms/ibm-developer-terms-of-use/</a>
+                            </p>
+                        </div>
+					</div>
+				</section>
+
 			</div>
 
 		<!-- Footer -->

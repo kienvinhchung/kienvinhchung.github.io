@@ -6,7 +6,7 @@
 -->
 <html lang="en">
 	<head>
-		<title>Kien's Project D</title>
+		<title>Kien's Project A</title>
 		<!-- Icon to show next to browser title aka Favicon-->
 		<link rel="apple-touch-icon" sizes="180x180" href="favicon1_io/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="favicon1_io/favicon-32x32.png">
@@ -45,11 +45,9 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="index.html#portfolio" id="backto-portfolio-link"><span class="icon solid fa-briefcase" style="color: red">Back to My Portfolio</span></a></li>
-								<li><a href="#aboutthisproject"><span class="icon solid fa-book-open">About this Project</span></a></li>
-								<li><a href="#dashboard_sales"><span class="icon solid fa-gauge">Sales Data Dashboard</span></a></li>
-                                <li><a href="#dashboard_service"><span class="icon solid fa-gauge">Service Data Dashboard</span></a></li>
-								<li><a href="#keyfindings"><span class="icon solid fa-chart-simple">Key Findings</span></a></li>
-								<li><a href="#datasetinfo"><span class="icon solid fa-download">Dataset Information</span></a></li>
+								<li><a href="#aboutthisproject" id="aboutthisproject-link"><span class="icon solid fa-book-open">About this Project</span></a></li>
+								<li><a href="#diagram" id="dataset-link"><span class="icon solid fa-diagram-next">Diagram</span></a></li>
+								<li><a href="#analysis" id="analysis-link"><span class="icon solid fa-file-code">My analysis</span></a></li>
 							</ul>
 						</nav>
 				</div>
@@ -72,67 +70,60 @@
                     <div class="container">
                         <header>
 							<h2>About this project</h2>
-							<h3></h3>
+							<h3>Yelp Relational Database Business & User Analysis</h3>
 							<br>
-							<h4>The purpose of this project is to showcase my skills and knowledge in IBM COGNOS Business Intelligence and Analytics with Watson Software.</h4>
+							<h4>The purpose of this project is to showcase my skills and knowledge in Structured Query Language (SQL)</h4>
                         </header>
-						<img src="images/project_ibm_cognos/logo.jpeg" alt="cognos_logo" />
+						<img src="images/project_yelp/yelp.png" alt="yelp_logo" />
 						<br>
 						<br>
 						<h3>Scenario</h3>
-                        <br>
-						<p>As a regional manager for a chain of car dealerships you need to build out a dashboard to allow you to understand your sales and service departments.</p>
+						<br>
+						<p>You are going to be playing the role of a real-world data scientist using SQL to both answer specific questions for an organization and make inferences based on your discoveries.</p>
+						<p>You will be using a dataset from a US-based organization called Yelp, which provides a platform for users to provide reviews and 
+							rate their interactions with a variety of organizations – businesses, restaurants, health clubs, hospitals, local governmental offices, charitable organizations, etc. 
+							Yelp has made a portion of this data available for personal, educational, and academic purposes.</p>
                     </div>
                 </section>
 
-				<!-- Dashboard Sales -->
-				<section id="dashboard_sales" class="three">
-                    <div class="container">
-                        <header>
-                            <h2>Cognos Automotive Sales Data Dashboard</h2>
-                        </header>
-						<img src="images/project_ibm_cognos/sales.png" alt="dashboard" style="border: 5px solid black; width: 86%;">
-                    </div>
-                </section>
+				<!-- ER Diagram -->
+				<section id="diagram" class="three">
+					<div class="container">
+						<header>
+							<h2>Entity-Relationship (ER) Diagram</h2>
+							<p>Click the diagram for full size image</p>
+						</header>
+						<a href="images/project_yelp/YelpDataset_ER_Diagram.pdf" target="_blank"><img src="images/project_yelp/YelpDataset_ER_Diagram.png" style="width: 80%; border-radius: 25px; border: 5px solid black;" alt="diagram"></a>
+					</div>
+				</section>
 
-                <!-- Dashboard Service -->
-				<section id="dashboard_service" class="four">
+				<!-- Analysis -->
+				<section id="analysis" class="four">
                     <div class="container">
                         <header>
-                            <h2>Cognos Automotive Service and Recalls Data Dashboard</h2>
+                            <h2>My Analysis</h2>
                         </header>
-                        <img src="images/project_ibm_cognos/service.png" alt="dashboard" style="border: 5px solid black; width: 86%;">
-                    </div>
-                </section>
-
-                <!-- Findings -->
-				<section id="keyfindings" class="five">
-                    <div class="container">
-                        <header>
-                            <h2>Key Findings</h2>
-                        </header>
+						<br>
 						<div>
+							<h3>Part I</h3>
+							<p>Profiling and Understanding Yelp Dataset
+								<br>
+								<a href="images/project_yelp/ucdavis_project_part_1.txt" target="_blank">[View analysis here]</a>
+							</p>
+							<br>
+							<h3>Part II</h3>
+							<p>Inferences and Analysis
+								<br>
+								<a href="images/project_yelp/ucdavis_project_part_2.txt" target="_blank">[View analysis here]</a>
+							</p>
+							<br>
+							<a href="images/project_yelp/ucdavis_project_full" download>[Complete file available for download here]</a>
+							<p>Open with any Text Editor <br>Recommend <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a></p>
 							
 						</div>
                     </div>
                 </section>
-
-				<!-- Dataset Info-->
-				<section id="datasetinfo" class="six">
-					<div class="container">
-						<header>
-                            <h2>Dataset Information</h2>
-                        </header>
-                        <div>
-                            <p>Dataset available on IBM Community website <br>
-                                <a href="https://community.ibm.com/accelerators/?context=analytics&type=Data&industry=Automotive" target="_blank">https://community.ibm.com/accelerators/?context=analytics&type=Data&industry=Automotive</a> <br>
-                                Term of Use <br>
-                                <a href="https://developer.ibm.com/terms/ibm-developer-terms-of-use/">https://developer.ibm.com/terms/ibm-developer-terms-of-use/</a>
-                            </p>
-                        </div>
-					</div>
-				</section>
-
+				
 			</div>
 
 		<!-- Footer -->
