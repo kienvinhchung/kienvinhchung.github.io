@@ -2330,6 +2330,10 @@ input, select, textarea {
 				background-color: #f8f8f8;
 			}
 
+			#main > section.ten {
+				background-color: #efefef;
+			}
+
 			.float-left {
 				text-align: left;
 			}
